@@ -25,6 +25,9 @@ jobs:
           repository: "mrrfv/cloudflare-gateway-pihole-scripts"
           ref: "v1"
 
+      - name: Keep workflow alive
+        uses: gautamkrishnar/keepalive-workflow@v1
+
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
@@ -67,6 +70,3 @@ jobs:
           curl "${{ env.PING_URL }}"
         env:
           PING_URL: ${{ secrets.PING_URL }}
-
-      - name: Keep workflow alive
-        uses: gautamkrishnar/keepalive-workflow@v1
